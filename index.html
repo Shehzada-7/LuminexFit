@@ -3,79 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Fitness Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
         <h1>Fitness Tracker</h1>
         <nav>
             <ul>
-                <li><a href="#log">Workout Log</a></li>
-                <li><a href="#track">Track Exercise</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#profile">Profile</a></li>
+                <li><a href="#workouts">Workouts</a></li>
+                <li><a href="#history">History</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Main content -->
     <main>
-        <!-- Workout Log Section -->
-        <section id="log">
-            <h2>Workout Log</h2>
-            <table id="workout-log">
-                <thead>
-                    <tr>
-                        <th>Date</th>
-                        <th>Exercise</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
-                        <th>Weight</th>
-                        <th>Duration</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Entries will be added here -->
-                </tbody>
-            </table>
+        <section id="home">
+            <h2>Welcome to your Fitness Tracker</h2>
+            <button onclick="showLogin()">Login</button>
+            <button onclick="showSignup()">Sign Up</button>
         </section>
 
-        <!-- Track Exercise Section -->
-        <section id="track">
-            <h2>Track Exercise</h2>
-            <form id="track-form">
+        <!-- Profile Section -->
+        <section id="profile" class="hidden">
+            <h2>Your Profile</h2>
+            <div>
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" placeholder="Enter your weight (kg)">
+            </div>
+            <div>
+                <label for="goal">Fitness Goal:</label>
+                <input type="text" id="goal" placeholder="Enter your fitness goal">
+            </div>
+            <button onclick="saveProfile()">Save Profile</button>
+        </section>
+
+        <!-- Workout Section -->
+        <section id="workouts" class="hidden">
+            <h2>Log Your Workout</h2>
+            <form id="workoutForm">
                 <label for="exercise">Exercise:</label>
-                <input type="text" id="exercise" placeholder="e.g., Push-ups" required>
-                
-                <label for="sets">Sets:</label>
-                <input type="number" id="sets" required>
-                
-                <label for="reps">Reps per Set:</label>
-                <input type="number" id="reps" required>
-                
-                <label for="weight">Weight (kg):</label>
-                <input type="number" id="weight">
-                
+                <input type="text" id="exercise" placeholder="Exercise name">
                 <label for="duration">Duration (minutes):</label>
-                <input type="number" id="duration" required>
-                
+                <input type="number" id="duration" placeholder="Minutes">
+                <label for="calories">Calories Burned:</label>
+                <input type="number" id="calories" placeholder="Calories burned">
                 <button type="submit">Log Workout</button>
             </form>
         </section>
 
-        <!-- Profile Section -->
-        <section id="profile">
-            <h2>My Profile</h2>
-            <p>Name: <span id="user-name">John Doe</span></p>
-            <p>Age: <span id="user-age">25</span></p>
-            <p>Weight: <span id="user-weight">70 kg</span></p>
+        <!-- History Section -->
+        <section id="history" class="hidden">
+            <h2>Workout History</h2>
+            <table id="workoutHistory">
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Duration</th>
+                        <th>Calories Burned</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Workout history entries will go here -->
+                </tbody>
+            </table>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 Fitness Tracker</p>
+        <p>&copy; 2024 Fitness Tracker App. All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
